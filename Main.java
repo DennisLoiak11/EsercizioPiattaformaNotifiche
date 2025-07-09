@@ -34,8 +34,17 @@ public class Main {
 
     System.out.print("Inserire messaggio 2: ");
     messaggio = scannerStr.nextLine();
+    
 
     manager.removeObserver(Paperino);
+
+
+
+    // metodo per inviare il messaggio a tutti gli osservatori
+    manager.inviaNotifica(messaggio);
+
+
+
     scannerStr.close();
   }
 }

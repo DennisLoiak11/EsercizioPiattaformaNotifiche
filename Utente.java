@@ -1,6 +1,6 @@
 // Interfaccia Observer
 interface Observer {
-  void aggiorna(String message);
+  void aggiorna(Messaggio msg);
 }
 
 public class Utente implements Observer {
@@ -11,9 +11,9 @@ public class Utente implements Observer {
     this.nome = nome;
   }
 
-  public void aggiorna(String message) {
+  public void aggiorna(Messaggio msg) {
     System.out.println("L'utente " + this.nome + " Ha ricevuto il messagio:");
-    System.out.println(message);
+    System.out.println(msg.getMessaggio());
   }
 
 

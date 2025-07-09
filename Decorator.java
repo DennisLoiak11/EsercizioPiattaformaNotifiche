@@ -7,7 +7,7 @@ interface Messaggio {
   String getMessaggio();
 }
 
-class MessaggioBase {
+class MessaggioBase implements Messaggio {
 
   String messaggio;
 
@@ -16,13 +16,13 @@ class MessaggioBase {
     this.messaggio = messaggio;
   }
 
-  String getMessaggio() {
+  public String getMessaggio() {
     return this.messaggio;
   }
 }
 
 // decoratore astratto
-abstract class DecoratoreMessaggioAstratto {
+abstract class DecoratoreMessaggioAstratto implements Messaggio {
 
   protected Messaggio messaggio; // wrap messaggio
 
@@ -48,7 +48,6 @@ class TimestampDecorator extends DecoratoreMessaggioAstratto {
 }
 
 // secondo decoratore uppercase
-
 class MaiuscoloDecorator extends DecoratoreMessaggioAstratto {
   public MaiuscoloDecorator(Messaggio messaggio) {
     super(messaggio);
@@ -83,7 +82,6 @@ class EmojiDecorator extends DecoratoreMessaggioAstratto {
 }
 
 // decoratore con prefisso
-
 class PrefissoDecorator extends DecoratoreMessaggioAstratto {
   private String prefisso;
 

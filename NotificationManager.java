@@ -34,8 +34,22 @@ public class NotificationManager {
 
   // metodo per inviare notifiche a tutti gli osservatori
   public void inviaNotifica(String messaggio) {
-    for (Observer observer : observers) {
-      observer.aggiorna(messaggio);
+
+    // Il primo utente riceve timestamp e maiuscole
+    observers.get(0).aggiorna(
+        new MaiuscoloDecorator(
+            new TimestampDecorator(
+                new MessaggioBase(messaggio))));
+
+    // Il secondo utente riceve il prefisso
+    observers.get(1).aggiorna(
+        new PrefissoDecorator(
+            new MessaggioBase(messaggio), "Decoratore Prefisso: "));
+
+    // Tutti gli altri ricevono un messaggio base
+    for (int i = 2; i < observers.size(); i++) {
+      observers.get(i).aggiorna(
+        new MessaggioBase(messaggio));
     }
   }
 }
