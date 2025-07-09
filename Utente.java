@@ -14,7 +14,8 @@ public class Utente implements Observer {
   }
 
   public void aggiorna(Messaggio msg) {
-    System.out.println("L'utente " + this.nome + " Ha ricevuto il messagio:");
+    //tipoMessaggio.setMessaggio(msg);
+    System.out.println("L'utente " + this.nome + " ha ricevuto il messagio:");
     System.out.println(msg.getMessaggio());
   }
 
