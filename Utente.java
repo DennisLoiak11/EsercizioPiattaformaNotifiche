@@ -6,9 +6,11 @@ interface Observer {
 public class Utente implements Observer {
 
   String nome;
+  Messaggio tipoMessaggio;
 
-  Utente(String nome) {
+  Utente(String nome/*, Messaggio tipoMessaggio*/) {
     this.nome = nome;
+    //this.tipoMessaggio = tipoMessaggio;
   }
 
   public void aggiorna(Messaggio msg) {
